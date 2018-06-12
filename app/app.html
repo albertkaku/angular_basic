@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <h1>{{title}}</h1><br/>
+        <form #myForm1="ngForm">
+            Sum:<br />
+            <input type="text" [(ngModel)]="cals[0].op1" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op1"  #op1="ngModel" /> &nbsp;
+            + &nbsp;
+            <input type="text" [(ngModel)]="cals[0].op2" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op2"  #op2="ngModel" /> &nbsp;
+            <button type="button" [disabled]="!myForm1.valid"  (click)="onSelectRow(0)">=</button>&nbsp;&nbsp; 
+            {{cals[0].result}}<br/> 
+            <p *ngIf="op1?.errors?.pattern">Operand one is invalid: Only numbers are allowed.</p>
+            <p *ngIf="op2?.errors?.pattern">Operand two is invalid: Only numbers are allowed.</p>
+            <br/>
+        </form>
+
+        <form #myForm2="ngForm">
+            Difference: <br/>
+            <input type="text" [(ngModel)]="cals[1].op1" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op3"  #op3="ngModel" /> &nbsp;
+            - &nbsp;&nbsp;
+            <input type="text" [(ngModel)]="cals[1].op2" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op4"  #op4="ngModel" /> &nbsp;
+            <button type="button" [disabled]="!myForm2.valid" (click)="onSelectRow(1)">=</button>&nbsp;&nbsp; 
+            {{cals[1].result}} <br/> 
+            <p *ngIf="op3?.errors?.pattern">The 3rd operand is invalid: Only numbers are allowed.</p>
+            <p *ngIf="op4?.errors?.pattern">The 4th operand is invalid: Only numbers are allowed.</p>
+            <br/>
+        </form>
+
+        <form #myForm3="ngForm">
+            Product: <br/>
+            <input type="text" [(ngModel)]="cals[2].op1" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op5"  #op5="ngModel" /> &nbsp;
+            * &nbsp;
+            <input type="text" [(ngModel)]="cals[2].op2" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op6"  #op6="ngModel" /> &nbsp;
+            <button type="button" [disabled]="!myForm3.valid" (click)="onSelectRow(2)">=</button>&nbsp;&nbsp; 
+            {{cals[2].result}} <br/> 
+            <p *ngIf="op5?.errors?.pattern">The 5th operand is invalid: Only numbers are allowed.</p>
+            <p *ngIf="op6?.errors?.pattern">The 6th operand is invalid: Only numbers are allowed.</p>
+            <br/>
+        </form>
+
+        <form #myForm4="ngForm">
+            Quotient: <br/>
+            <input type="text" [(ngModel)]="cals[3].op1" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op7"  #op7="ngModel" /> &nbsp;
+            \ &nbsp;&nbsp;
+            <input type="text" [(ngModel)]="cals[3].op2" size="5" pattern="^[+-]*[0-9]*[\.]?[0-9]*$" name="op8"  #op8="ngModel" /> &nbsp;
+            <button type="button" [disabled]="!myForm4.valid" (click)="onSelectRow(3)">=</button>&nbsp;&nbsp; 
+            {{cals[3].result}} <br/> 
+            <p *ngIf="op7?.errors?.pattern">The 7th operand is invalid: Only numbers are allowed.</p>
+            <p *ngIf="op8?.errors?.pattern">The 8th operand is invalid: Only numbers are allowed.</p>
+            <br/>
+        </form>
+    </body>
+</html>
